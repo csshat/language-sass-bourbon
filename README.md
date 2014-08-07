@@ -1,4 +1,4 @@
-language-scss-bourbon
+language-sass-bourbon
 =====================
 
 Sass language
