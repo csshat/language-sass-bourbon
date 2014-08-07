@@ -1,0 +1,62 @@
+{
+  "name": "csshat-language-sass-bourbon",
+  "title": "Sass (bourbon)",
+  "version": "1.0.0",
+  "description": "Sass language",
+  "main": "dust.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/csshat/language-sass-bourbon"
+  },
+  "bugs": {
+    "url": "https://github.com/csshat/language-sass-bourbon/issues"
+  },
+  "author": "Petr Brzek <petrbrzek@abdoc.net> (https://github.com/petrbrzek)",
+  "contributors": [
+    "Marek Hrabe <marekhrabe@abdoc.net> (https://github.com/marekhrabe)"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "octopus-helpers": "^0.2.3"
+  },
+  "settings": {
+    "inheritFontStyles": {
+      "type": "boolean",
+      "default": true
+    },
+    "selector": {
+      "type": "boolean",
+      "default": true
+    },
+    "selectorTextStyle": {
+      "type": "boolean",
+      "options": [
+        "Dash case",
+        "Snake case",
+        "Camel case"
+      ],
+      "default": "Dash case"
+    },
+    "selectorType": {
+      "type": "select",
+      "options": [
+        "id",
+        "class",
+        "element"
+      ],
+      "default": "class"
+    },
+    "colorType": {
+      "type": "select",
+      "options": [
+        "hex",
+        "rgb",
+        "hsl"
+      ],
+      "default": "hex"
+    }
+  },
+  "bundledDependencies": [
+    "octopus-helpers"
+  ]
+}

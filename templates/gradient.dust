@@ -1,0 +1,7 @@
+@include background-image(
+  {#gradient}{type}-gradient({angle|gradientAngle}
+    {#stops}
+        , {@color type=options.colorType}{color}{/color} {location}%
+    {/stops}
+    ){@sep}, {/sep}
+  {/gradient}){~n}
