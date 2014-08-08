@@ -67,6 +67,7 @@
     {/options.inheritFontStyles}
 
     {>textStyle selector=options.selector /}
+    {?options.selector}{^options.inheritFontStyles}{~n}{/options.inheritFontStyles}{/options.selector}
     {^options.selector}{@sep}{~n}{/sep}{/options.selector}
 {:else}
 
