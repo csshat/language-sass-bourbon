@@ -54,6 +54,10 @@
         "hsl"
       ],
       "default": "hex"
+    },
+    "showTextSnippet": {
+      "type": "boolean",
+      "default": true
     }
   },
   "bundledDependencies": [
