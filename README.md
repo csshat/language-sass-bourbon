@@ -1,6 +1,6 @@
 # Sass (Bourbon)
 
-[![Install in CSS Hat](http://img.shields.io/badge/install-to%20CSS%20Hat-blue.svg)](http://addons.csshat.com/?install=csshat/language-sass-compass)
+[![Install in CSS Hat](http://img.shields.io/badge/install-to%20CSS%20Hat-blue.svg)](http://addons.csshat.com/?install=csshat/language-sass-bourbon)
 
 This is a template for [CSS Hat 2](https://csshat.com/) that generates code in [Sass language](http://sass-lang.com/) with [Bourbon mixin library](http://bourbon.io/).
 
