@@ -4,6 +4,11 @@
   "version": "1.0.0",
   "description": "Sass language",
   "main": "dust.js",
+  "scope": "source.sass",
+  "engines": {
+    "csshat": "~2.0.0",
+    "avocode": "*"
+  },
   "homepage": "https://github.com/csshat/language-sass-bourbon",
   "repository": {
     "type": "git",
