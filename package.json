@@ -1,7 +1,7 @@
 {
   "name": "csshat-language-sass-bourbon",
   "title": "Sass (bourbon)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sass language",
   "main": "dust.js",
   "scope": "source.sass",
