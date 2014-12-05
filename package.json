@@ -3,8 +3,9 @@
   "title": "Sass (bourbon)",
   "version": "1.0.1",
   "description": "Sass language",
-  "main": "dust.js",
-  "scope": "source.sass",
+  "main": "main",
+  "scope": "source.scss",
+  "codeLanguage": true,
   "engines": {
     "csshat": "~2.0.0",
     "avocode": "*"
@@ -17,13 +18,13 @@
   "bugs": {
     "url": "https://github.com/csshat/language-sass-bourbon/issues"
   },
-  "author": "Petr Brzek <petrbrzek@abdoc.net> (https://github.com/petrbrzek)",
+  "author": "Tomas Hanacek <tomashanacek@avocode.com> (https://github.com/tomashanacek)",
   "contributors": [
-    "Marek Hrabe <marekhrabe@abdoc.net> (https://github.com/marekhrabe)"
+    "Petr Brzek <petrbrzek@abdoc.net> (https://github.com/petrbrzek)"
   ],
   "license": "MIT",
   "dependencies": {
-    "octopus-helpers": "^0.2.9"
+    "octopus-helpers": "^1.0.0"
   },
   "settings": {
     "inheritFontStyles": {
@@ -37,11 +38,11 @@
     "selectorTextStyle": {
       "type": "hidden",
       "options": [
-        "Dash case",
-        "Snake case",
-        "Camel case"
+        "dash-case",
+        "snake_case",
+        "camelCase"
       ],
-      "default": "Dash case"
+      "default": "dash-case"
     },
     "selectorType": {
       "type": "select",
@@ -61,9 +62,38 @@
       ],
       "default": "hex"
     },
+    "scssSyntax": {
+      "type": "boolean",
+      "default": true
+    },
     "showTextSnippet": {
       "type": "boolean",
       "default": true
+    },
+    "showAbsolutePositions": {
+      "type": "boolean",
+      "default": false
+    },
+    "unit": {
+      "type": "hidden",
+      "options": [
+        "px",
+        "em",
+        "rem"
+      ],
+      "default": "px"
+    },
+    "useColorName": {
+      "type": "boolean",
+      "default": true
+    },
+    "quoteType": {
+      "type": "select",
+      "options": [
+        "'",
+        "\""
+      ],
+      "default": "\""
     }
   },
   "bundledDependencies": [
