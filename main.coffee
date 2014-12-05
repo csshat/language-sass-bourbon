@@ -61,7 +61,7 @@ class Sass
         if @bounds.width == @bounds.height
           mixin('size', @bounds.width, unit)
         else
-          mixin('size', "#{unit(@bounds.width)}, #{unit(@bounds.height)}")
+          mixin('size', "#{unit(@bounds.width)} #{unit(@bounds.height)}")
 
       declaration('opacity', @opacity)
 
