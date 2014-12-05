@@ -24,7 +24,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "octopus-helpers": "^1.0.0"
+    "octopus-helpers": "^1.0.0",
+    "octopus-sass": "^0.1.0"
   },
   "settings": {
     "inheritFontStyles": {
@@ -97,6 +98,7 @@
     }
   },
   "bundledDependencies": [
-    "octopus-helpers"
+    "octopus-helpers",
+    "octopus-sass"
   ]
 }

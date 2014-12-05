@@ -1,80 +1,26 @@
 _ = require 'lodash'
 {css, utils} = require 'octopus-helpers'
+sass = require 'octopus-sass'
 
 
-_declaration = ($$, scssSyntax, property, value, modifier) ->
-  return unless value?
-
-  if scssSyntax
-    semicolon = ';'
-  else
-    semicolon = ''
-
-  if modifier
-    value = modifier(value)
-
-  $$ "#{property}: #{value}#{semicolon}"
-
-
-_mixin = ($$, name, value, modifier) ->
-  return unless value?
-
-  if modifier
-    value = modifier(value)
-
-  $$ "@include #{name}(#{value});"
-
-
-renderColor = (color, colorVariable) ->
-  colorVariable = renderVariable(colorVariable)
-  if color.a < 1
-    "rgba(#{colorVariable}, #{color.a})"
-  else
-    colorVariable
-
-
-_comment = ($, showTextSnippet, text) ->
-  return unless showTextSnippet
-  $ "// #{text}"
-
-_convertColor = _.partial(css.convertColor, renderColor)
-
-
-defineVariable = (name, value, options) ->
-  semicolon = if options.scssSyntax then ';' else ''
-  "$#{name}: #{value}#{semicolon}"
-
-
-renderVariable = (name) -> "$#{name}"
-
-
-_startSelector = ($, selector, scssSyntax, selectorOptions, text) ->
-  return unless selector
-  curlyBracket = if scssSyntax then ' {' else ''
-  $ '%s%s', utils.prettySelectors(text, selectorOptions), curlyBracket
-
-
-_endSelector = ($, selector, scssSyntax) ->
-  $ '}' if selector and scssSyntax
-
-
-class Stylus
+class Sass
 
   render: ($) ->
     $$ = $.indents
-    declaration = _.partial(_declaration, $.indents, @options.scssSyntax)
-    mixin = _.partial(_mixin, $.indents)
-    comment = _.partial(_comment, $, @options.showTextSnippet)
+    declaration = _.partial(sass.declaration, $.indents, @options.scssSyntax)
+    mixin = _.partial(sass.mixin, $.indents)
+    comment = _.partial(sass.comment, $, @options.showTextSnippet)
     unit = _.partial(css.unit, @options.unit)
-    convertColor = _.partial(_convertColor, @options)
+    convertColor = _.partial(sass.convertColor, @options)
     fontStyles = _.partial(css.fontStyles, declaration, convertColor, unit, @options.quoteType)
 
     selectorOptions =
       separator: @options.selectorTextStyle
       selector: @options.selectorType
       maxWords: 3
-    startSelector = _.partial(_startSelector, $, @options.selector, @options.scssSyntax, selectorOptions)
-    endSelector = _.partial(_endSelector, $, @options.selector, @options.scssSyntax)
+      fallbackSelectorPrefix: 'layer'
+    startSelector = _.partial(sass.startSelector, $, @options.selector, @options.scssSyntax, selectorOptions)
+    endSelector = _.partial(sass.endSelector, $, @options.selector, @options.scssSyntax)
 
     if @type == 'textLayer'
       for textStyle in css.prepareTextStyles(@options.inheritFontStyles, @baseTextStyle, @textStyles)
@@ -138,4 +84,7 @@ class Stylus
       endSelector()
 
 
-module.exports = {defineVariable, renderVariable, renderClass: Stylus}
+module.exports =
+  defineVariable: sass.defineVariable
+  renderVariable: sass.renderVariable
+  renderClass: Sass
