@@ -25,49 +25,18 @@
   "license": "MIT",
   "dependencies": {
     "octopus-helpers": "^1.2.0",
-    "octopus-sass": "^0.2.1"
+    "octopus-sass": "^0.2.2"
   },
   "settings": {
     "inheritFontStyles": {
       "type": "boolean",
       "default": true
     },
-    "selector": {
-      "type": "boolean",
-      "default": false
-    },
-    "selectorTextStyle": {
-      "type": "hidden",
-      "options": [
-        "dash-case",
-        "snake_case",
-        "camelCase"
-      ],
-      "default": "dash-case"
-    },
-    "selectorType": {
-      "type": "select",
-      "options": [
-        "id",
-        "class",
-        "element"
-      ],
-      "default": "class"
-    },
-    "colorType": {
-      "type": "select",
-      "options": [
-        "hex",
-        "rgb",
-        "hsl"
-      ],
-      "default": "hex"
-    },
     "scssSyntax": {
       "type": "boolean",
       "default": true
     },
-    "showTextSnippet": {
+    "showComments": {
       "type": "boolean",
       "default": true
     },
@@ -87,6 +56,37 @@
     "useColorName": {
       "type": "boolean",
       "default": true
+    },
+    "selector": {
+      "type": "boolean",
+      "default": false
+    },
+    "selectorType": {
+      "type": "select",
+      "options": [
+        "id",
+        "class",
+        "element"
+      ],
+      "default": "class"
+    },
+    "selectorTextStyle": {
+      "type": "select",
+      "options": [
+        "dash-case",
+        "snake_case",
+        "camelCase"
+      ],
+      "default": "dash-case"
+    },
+    "colorType": {
+      "type": "select",
+      "options": [
+        "hex",
+        "rgb",
+        "hsl"
+      ],
+      "default": "hex"
     },
     "quoteType": {
       "type": "select",

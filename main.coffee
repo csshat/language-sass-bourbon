@@ -9,7 +9,7 @@ class Sass
     $$ = $.indents
     declaration = _.partial(sass.declaration, $.indents, @options.scssSyntax)
     mixin = _.partial(sass.mixin, $.indents, @options.scssSyntax)
-    comment = _.partial(sass.comment, $, @options.showTextSnippet)
+    comment = _.partial(sass.comment, $, @options.showComments)
     unit = _.partial(css.unit, @options.unit)
     convertColor = _.partial(sass.convertColor, @options)
     fontStyles = _.partial(css.fontStyles, declaration, convertColor, unit, @options.quoteType)
