@@ -69,7 +69,7 @@ class Sass
         declaration('background-color', @background.color, convertColor)
 
         if @background.gradient
-          gradientStr = css.convertGradients(convertColor, @background.gradient)
+          gradientStr = css.convertGradients(convertColor, {gradient: @background.gradient, @bounds})
           mixin('background-image', gradientStr) if gradientStr
 
       if @borders
