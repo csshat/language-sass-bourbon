@@ -3,6 +3,14 @@ _ = require 'lodash'
 sass = require 'octopus-sass'
 
 
+setNumberValue = (number) ->
+  converted = parseInt(number, 10)
+  if not number.match(/^\d+(\.\d+)?$/)
+    return 'Please enter numeric value'
+  else
+    return converted
+
+
 class Sass
 
   render: ($) ->
@@ -10,7 +18,13 @@ class Sass
     declaration = _.partial(sass.declaration, $.indents, @options.scssSyntax)
     mixin = _.partial(sass.mixin, $.indents, @options.scssSyntax)
     comment = _.partial(sass.comment, $, @options.showComments)
-    unit = _.partial(css.unit, @options.unit)
+
+    rootValue = switch @options.unit
+      when 'px' then 0
+      when 'em' then @options.emValue
+      when 'rem' then @options.remValue
+    unit = _.partial(css.unit, @options.unit, rootValue)
+
     convertColor = _.partial(sass.convertColor, @options)
     fontStyles = _.partial(css.fontStyles, declaration, convertColor, unit, @options.quoteType)
 
@@ -87,4 +101,5 @@ class Sass
 module.exports =
   defineVariable: sass.defineVariable
   renderVariable: sass.renderVariable
+  setNumberValue: setNumberValue
   renderClass: Sass
